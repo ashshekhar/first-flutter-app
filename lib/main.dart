@@ -7,9 +7,17 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  var questionIndex = 0;
+
   void answerQuestion() {
-    print("Answer chosen!");
+    questionIndex += 1;
+    print(questionIndex);
   }
+
+  var questions = [
+    'What\'s your favorite color ?',
+    'What\'s your favorite sport ?',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text("Question: "),
+          Text("Question: " + questions[questionIndex]),
           RaisedButton(
             child: Text("Button 1"),
             onPressed: answerQuestion,
