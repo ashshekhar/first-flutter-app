@@ -12,9 +12,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: Text("This is my app bar"),
+        title: Text("Quiz App"),
       ),
-      body: Text("This is my main body"),
+      body: Column(
+        children: [
+          Text("Question: "),
+          RaisedButton(
+            child: Text("Button 1"),
+            onPressed: null,
+          ),
+          RaisedButton(
+            child: Text("Button 2"),
+            onPressed: null,
+          ),
+          RaisedButton(
+            child: Text("Button 3"),
+            onPressed: null,
+          ),
+        ],
+      ),
     ));
   }
 }
