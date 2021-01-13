@@ -23,7 +23,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex += 1;
     });
-    print(_questionIndex);
   }
 
   var questions = [
@@ -33,7 +32,7 @@ class _MyAppState extends State<MyApp> {
     },
     {
       'questionText': 'What\'s your favorite sport ?',
-      'answerText': ['Skiing', 'Baddy', 'Cricket', 'Soccer']
+      'answerText': ['Skiing', 'Baddy', 'Cricket']
     },
     {
       'questionText': 'What\'s your favorite food ?',
@@ -53,9 +52,9 @@ class _MyAppState extends State<MyApp> {
           Question(
             "Question: " + questions[_questionIndex]['questionText'],
           ),
-          Answer(_answerQuestion),
-          Answer(_answerQuestion),
-          Answer(_answerQuestion),
+          ...(questions[_questionIndex]['answerText'] as List<String>).map((answer) {
+            return Answer(_answerQuestion, answer);
+          }).toList(), 
         ],
       ),
     ));
