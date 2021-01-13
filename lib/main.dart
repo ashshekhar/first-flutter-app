@@ -27,8 +27,18 @@ class _MyAppState extends State<MyApp> {
   }
 
   var questions = [
-    'What\'s your favorite color ?',
-    'What\'s your favorite sport ?',
+    {
+      'questionText': 'What\'s your favorite color ?',
+      'answerText': ['Red', 'Blue', 'Green', 'Yellow']
+    },
+    {
+      'questionText': 'What\'s your favorite sport ?',
+      'answerText': ['Skiing', 'Baddy', 'Cricket', 'Soccer']
+    },
+    {
+      'questionText': 'What\'s your favorite food ?',
+      'answerText': ['Cheese', 'Burger', 'Ham', 'Pasta']
+    },
   ];
 
   @override
@@ -41,7 +51,7 @@ class _MyAppState extends State<MyApp> {
       body: Column(
         children: [
           Question(
-            "Question: " + questions[_questionIndex],
+            "Question: " + questions[_questionIndex]['questionText'],
           ),
           Answer(_answerQuestion),
           Answer(_answerQuestion),
