@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './question.dart';
 import './answer.dart';
+import './result.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -59,9 +60,7 @@ class _MyAppState extends State<MyApp> {
                 }).toList(),
               ],
             )
-          : Center(
-              child: Text("End of quiz!"),
-            ),
+          : Result(),
     ));
   }
 }
