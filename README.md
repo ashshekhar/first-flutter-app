@@ -1,6 +1,6 @@
 # Flutter Quiz App
 
-A Flutter quiz app to learn the basics of Flutter and Dart
+A quiz app to learn the basics of Flutter and Dart
 
 
 # Preview 
