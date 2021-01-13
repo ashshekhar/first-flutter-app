@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
 import './result.dart';
 
 // void main() {
@@ -26,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  static const questions = [
+  static const _questions = [
     {
       'questionText': 'What\'s your favorite color ?',
       'answerText': ['Red', 'Blue', 'Green', 'Yellow']
@@ -48,18 +47,11 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: Text("Quiz App"),
       ),
-      body: _questionIndex < questions.length
-          ? Column(
-              children: [
-                Question(
-                  "Question: " + questions[_questionIndex]['questionText'],
-                ),
-                ...(questions[_questionIndex]['answerText'] as List<String>)
-                    .map((answer) {
-                  return Answer(_answerQuestion, answer);
-                }).toList(),
-              ],
-            )
+      body: _questionIndex < _questions.length
+          ? Quiz(
+              questions: _questions,
+              answerQuestion: _answerQuestion,
+              questionIndex: _questionIndex)
           : Result(),
     ));
   }
