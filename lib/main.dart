@@ -18,25 +18,49 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _finalScore = 0;
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _finalScore += score;
+
     setState(() {
       _questionIndex += 1;
+    });
+  }
+
+  void _resetQuiz() {
+    setState(() {
+    _questionIndex = 0;
+    _finalScore = 0;
     });
   }
 
   static const _questions = [
     {
       'questionText': 'What\'s your favorite color ?',
-      'answerText': ['Red', 'Blue', 'Green', 'Yellow']
+      'answerText': [
+        {'text': 'Red', 'score': 2},
+        {'text': 'Blue', 'score': 3},
+        {'text': 'Green', 'score': 3},
+        {'text': 'Yellow', 'score': 10}
+      ]
     },
     {
       'questionText': 'What\'s your favorite sport ?',
-      'answerText': ['Skiing', 'Baddy', 'Cricket']
+      'answerText': [
+        {'text': 'Skiing', 'score': 2},
+        {'text': 'Baddy', 'score': 3},
+        {'text': 'Cricket', 'score': 3},
+      ]
     },
     {
       'questionText': 'What\'s your favorite food ?',
-      'answerText': ['Cheese', 'Burger', 'Ham', 'Pasta']
+      'answerText': [
+        {'text': 'Ham', 'score': 2},
+        {'text': 'Cheese', 'score': 3},
+        {'text': 'Burger', 'score': 3},
+        {'text': 'Pancakes', 'score': 10}
+      ]
     },
   ];
 
@@ -52,7 +76,7 @@ class _MyAppState extends State<MyApp> {
               questions: _questions,
               answerQuestion: _answerQuestion,
               questionIndex: _questionIndex)
-          : Result(),
+          : Result(_finalScore, _resetQuiz),
     ));
   }
 }
